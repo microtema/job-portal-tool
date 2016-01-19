@@ -21,7 +21,7 @@
     "browserify": "13.0.0",
     "uniq": "1.0.1",
     "flux":"2.1.1",
-    "eventEmitter" : ""
+    "bootstrap": "1.1.1"
   },
   "devDependencies": {
     "tap": "^2.2.0",
