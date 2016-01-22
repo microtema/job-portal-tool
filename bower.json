@@ -1,0 +1,32 @@
+{
+  "name": "job-portal",
+  "description": "Job Portal",
+  "main": "index.js",
+  "authors": [
+    "Mario Tema"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "Portal",
+    "ReactJS",
+    "Flux",
+    "JBoss",
+    "MSSQL"
+  ],
+  "dependencies": {
+    "flux": "2.1.1",
+    "react": "0.14.6",
+    "bootstrap": "3.3.6",
+    "eventEmitter": "4.3.0",
+    "underscore":"1.8.3"
+  },
+  "homepage": "https://github.com/sevenfate/job-portal-tool",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
