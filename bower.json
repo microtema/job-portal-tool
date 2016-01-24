@@ -18,7 +18,8 @@
     "react": "0.14.6",
     "bootstrap": "3.3.6",
     "eventEmitter": "4.3.0",
-    "underscore":"1.8.3"
+    "underscore": "1.8.3",
+    "eonasdan-bootstrap-datetimepicker": "~4.17.37"
   },
   "homepage": "https://github.com/sevenfate/job-portal-tool",
   "moduleType": [],

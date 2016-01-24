@@ -1,0 +1,22 @@
+[
+  {
+    "id": 0,
+    "name": "Software Developer",
+    "company": "Bruno Bader",
+    "assistant": "Herr Popovic",
+    "salary": "70 - 75",
+    "startDate": "01/03/2016",
+    "meetDate": null,
+    "state": "Probation"
+  },
+  {
+    "id": 1,
+    "name": "Software Developer",
+    "company": "Inovex",
+    "assistant": "Frau Marina",
+    "salary": "70 - 75",
+    "startDate": null,
+    "meetDate": null,
+    "state": "Phone Interview"
+  }
+]
