@@ -369,7 +369,7 @@ var JobStore = function () {
     };
 
     this.request = function () {
-        $.get('data.json', function (entries) {
+        $.get('/rest/data.json', function (entries) {
             this.entries = entries;
             this._notify();
         }.bind(this));
