@@ -43,23 +43,25 @@ var JobEntries = React.createClass({
             });
 
         return <div className="row spacer">
-            <table width="100%" className="table table-hover">
-                <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Job name</th>
-                    <th>Company</th>
-                    <th>Assistant</th>
-                    <th>Salary</th>
-                    <th>Meet Date</th>
-                    <th>Start Date</th>
-                    <th>State</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
-                </tr>
-                </thead>
-                <tbody>{rows}</tbody>
-            </table>
+            <div class="table-responsive">
+                <table width="100%" className="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Job name</th>
+                        <th>Company</th>
+                        <th>Assistant</th>
+                        <th>Salary</th>
+                        <th>Meet Date</th>
+                        <th>Start Date</th>
+                        <th>State</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                    </thead>
+                    <tbody>{rows}</tbody>
+                </table>
+            </div>
         </div>
     },
 
@@ -76,7 +78,7 @@ var JobEntries = React.createClass({
 
 var JobEntry = React.createClass({
     render: function () {
-        return <tr>
+        return <tr onClick={this.editJobEntry} className={this.props.data.state == 'Probation' ? 'active' : 'info'}>
             <td>{this.props.data.id}</td>
             <td>{this.props.data.name}</td>
             <td>{this.props.data.company}</td>
@@ -157,7 +159,8 @@ var JobForm = React.createClass({
                     <div className="modal-header">
                         <button type="button" className="close" data-dismiss="modal" aria-label="Close"><span
                             aria-hidden="true">&times;</span></button>
-                        <h4 className="modal-title">Job data: {this.state.id}</h4>
+                        <h4 className="modal-title">Job
+                            data: {this.state.id != null ? this.state.name : 'add new Job'}</h4>
                     </div>
                     <div className="modal-body">
                         <div className="form-group">
@@ -301,7 +304,7 @@ var JobStore = function () {
     this.entries = [];
 
     dispatcher.register(function (payload) {
-        console.info('on event: ' + payload.type);
+        console.info('on event: ', payload.type);
 
         switch (payload.type) {
             case 'add' :
@@ -317,16 +320,18 @@ var JobStore = function () {
                 this.onDelete(payload);
                 break;
             case 'all' :
-                this._notify();
+                this.request();
                 break;
         }
     }.bind(this));
 
     this.onEdit = function (payload) {
+
         emitter.emit(payload.type, payload.data);
     };
 
     this.onAdd = function (payload) {
+
         emitter.emit(payload.type);
     };
 
@@ -374,8 +379,6 @@ var JobStore = function () {
             this._notify();
         }.bind(this));
     };
-
-    this.request();
 };
 
 var emitter = new EventEmitter();
