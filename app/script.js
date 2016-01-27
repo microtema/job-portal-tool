@@ -98,8 +98,13 @@ var JobEntry = React.createClass({
     editJobEntry: function () {
         dispatcher.dispatch({type: 'edit', data: this.props.data});
     },
-    deleteJobEntry: function () {
+    deleteJobEntry: function (e) {
         dispatcher.dispatch({type: 'delete', data: this.props.data});
+
+        e.stopPropagation();
+        e.preventDefault();
+
+        return false;
     }
 });
 

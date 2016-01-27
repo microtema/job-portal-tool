@@ -94,4 +94,6 @@ module.exports = function (grunt) {
     grunt.registerTask('server', ['execute']);
     grunt.registerTask('install', ['clean', 'test', 'copy', 'maven:install']);
     grunt.registerTask('test', ['express:test:start', 'karma', 'express:test:stop']);
+
+
 };

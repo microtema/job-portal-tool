@@ -1,7 +1,7 @@
 [
   {
     "id": 0,
-    "name": "Software Developer",
+    "name": "Senior Java Entwickler",
     "company": "Bruno Bader",
     "assistant": "Herr Popovic",
     "salary": "70 - 75",
@@ -12,10 +12,20 @@
   {
     "id": 1,
     "name": "Software Developer",
-    "company": "Inovex",
-    "assistant": "Frau Marina",
+    "company": "ETECTURE GmbH",
+    "assistant": "Frau Evelyn Holger",
     "salary": "70 - 75",
-    "startDate": null,
+    "startDate": "01/03/2016",
+    "meetDate": null,
+    "state": "Waiting"
+  },
+  {
+    "id": 2,
+    "name": "Software Developer",
+    "company": "Inovex GmbH",
+    "assistant": "Frau Jasmina Kroeger",
+    "salary": "70 - 75",
+    "startDate": "01/03/2016",
     "meetDate": null,
     "state": "Phone Interview"
   }
