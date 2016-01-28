@@ -11,6 +11,7 @@ module.exports = function (grunt) {
             }
         },
 
+
         clean: {
             compile: {
                 src: ['<%= config.dist %>']
@@ -25,6 +26,54 @@ module.exports = function (grunt) {
                     src: ['**'],
                     dest: '<%= config.dist %>/script/'
                 },
+                    {
+                        expand: true,
+                        cwd: 'bower_components/react/',
+                        src: ['react.js', 'react-dom.js'],
+                        dest: '<%= config.dist %>/script/'
+                    },
+                    {
+                        expand: true,
+                        cwd: 'bower_components/eventEmitter/',
+                        src: ['EventEmitter.js'],
+                        dest: '<%= config.dist %>/script/'
+                    },
+                    {
+                        expand: true,
+                        cwd: 'bower_components/flux/dist/',
+                        src: ['Flux.js'],
+                        dest: '<%= config.dist %>/script/'
+                    },
+                    {
+                        expand: true,
+                        cwd: 'bower_components/moment/min/',
+                        src: ['moment.min.js'],
+                        dest: '<%= config.dist %>/script/'
+                    },
+                    {
+                        expand: true,
+                        cwd: 'bower_components/jquery/dist/',
+                        src: ['jquery.js'],
+                        dest: '<%= config.dist %>/script/'
+                    },
+                    {
+                        expand: true,
+                        cwd: 'bower_components/eonasdan-bootstrap-datetimepicker/build/js/',
+                        src: ['bootstrap-datetimepicker.min.js'],
+                        dest: '<%= config.dist %>/script/'
+                    },
+                    {
+                        expand: true,
+                        cwd: 'bower_components/underscore/',
+                        src: ['underscore.js'],
+                        dest: '<%= config.dist %>/script/'
+                    },
+                    {
+                        expand: true,
+                        cwd: 'bower_components/bootstrap/dist/js/',
+                        src: ['bootstrap.js'],
+                        dest: '<%= config.dist %>/script/'
+                    },
                     {
                         expand: true,
                         cwd: 'app/css/',
@@ -44,6 +93,23 @@ module.exports = function (grunt) {
                         dest: '<%= config.dist %>'
                     }
                 ]
+            }
+        },
+
+        react: {
+            jsx: {
+                files: [
+                    {
+                        'app/js/app.js': ['app/jsx/*.jsx']
+                    }
+                ]
+            }
+        },
+
+        watch: {
+            react: {
+                files: 'app/jsx/**/*.jsx',
+                tasks: ['react']
             }
         },
 
@@ -90,10 +156,14 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-karma');
     grunt.loadNpmTasks('grunt-express-server');
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-react');
+    grunt.loadNpmTasks('grunt-contrib-watch');
 
     grunt.registerTask('server', ['execute']);
     grunt.registerTask('install', ['clean', 'test', 'copy', 'maven:install']);
     grunt.registerTask('test', ['express:test:start', 'karma', 'express:test:stop']);
+
+    grunt.registerTask('default', ['watch']);
 
 
 };
