@@ -11,11 +11,7 @@ var JobForm = React.createClass({
             state: 'REQUEST'
         };
     },
-
-    changeState: function (e) {
-        alert(e.target.value);
-    },
-
+    
     render: function () {
 
         return <div className="modal fade" tabIndex="-1" role="dialog">

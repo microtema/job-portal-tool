@@ -33,6 +33,7 @@ var JobEntries = React.createClass({
                         <th>Salary</th>
                         <th>Meet Date</th>
                         <th>State</th>
+                        <th>Rating</th>
                         <th>Edit</th>
                         <th>Delete</th>
                     </tr>
