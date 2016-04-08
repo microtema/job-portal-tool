@@ -32,6 +32,12 @@ var JobStore = function () {
     };
 
     this.saveOrUpdate = function (payload) {
+        
+        if(payload.data.createdDate){
+           // payload.createdDate = DATE.valueOf(payload.createdDate);
+            payload.data.createdDate = moment(payload.data.createdDate, "MM/DD/YYYY hh:mm a").toDate();
+        }
+        
         if (payload.data.id) {
             this.update.apply(this, arguments);
         } else {

@@ -6,12 +6,14 @@ var JobForm = React.createClass({
             title: 'Java Developer',
             description: 'Java Developer',
             company: '',
+            favorite: 0,
             jobHunter: '',
+            createdDate : new Date(),
             salary: '65000.00 - 70000.00',
             state: 'REQUEST'
         };
     },
-    
+
     render: function () {
 
         return <div className="modal fade" tabIndex="-1" role="dialog">
@@ -58,6 +60,20 @@ var JobForm = React.createClass({
                             <SelectBox url='/rest/job/status' value={this.state.state}
                                        onChange={this.update.bind(null,'state')}/>
                         </div>
+                        <div className="form-group">
+                            <div className='input-group date' id='datetimepicker_meetDate'>
+                                <input type="text" className="form-control" placeholder="Meet Date"
+                                       value={this.state.createdDate} onBlur={this.update.bind(null,'createdDate')}
+                                       onChange={this.update.bind(null,'createdDate')}/>
+                                <span className="input-group-addon">
+                                    <span className="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div className="form-group">
+                                <label>Rating</label>
+                                <RatingBox rating={this.state.favorite} onChange={this.handleRating}/>
+                        </div>
                     </div>
                     <div className="modal-footer">
                         <button type="button" className="btn btn-default" data-dismiss="modal" onClick={this.cancel}>
@@ -102,6 +118,10 @@ var JobForm = React.createClass({
         this.$el.find('.date').datetimepicker();
     },
 
+    handleRating: function (rating) {
+        this.update('favorite', {target: {value: rating}});
+    },
+
     update: function (propertyName, e) {
         var propertyState = {};
         propertyState[propertyName] = e.target.value;
@@ -132,7 +152,9 @@ var JobForm = React.createClass({
             title: 'Java Developer',
             description: 'Java Developer',
             company: '',
+            favorite: 0,
             jobHunter: '',
+            createdDate : new Date(),
             salary: '65000.00 - 70000.00',
             state: 'REQUEST'
         });

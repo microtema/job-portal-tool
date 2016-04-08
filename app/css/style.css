@@ -1,3 +1,7 @@
 body {
-    background-color: #8a6343;
+    background-color: #fdfdfd;
+}
+
+span.glyphicon{
+    cursor: pointer;
 }

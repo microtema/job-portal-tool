@@ -23,7 +23,7 @@ var JobEntries = React.createClass({
 
         return <div className="row spacer">
             <div className="table-responsive">
-                <table width="100%" className="table table-hover">
+                <table width="100%" className="table table-hover table-condensed">
                     <thead>
                     <tr>
                         <th>#</th>
@@ -31,7 +31,7 @@ var JobEntries = React.createClass({
                         <th>Company</th>
                         <th>Assistant</th>
                         <th>Salary</th>
-                        <th>Meet Date</th>
+                        <th>Request Date</th>
                         <th>State</th>
                         <th>Rating</th>
                         <th>Edit</th>

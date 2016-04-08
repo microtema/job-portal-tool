@@ -1,12 +1,20 @@
 var JobEntry = React.createClass({
+
+    states: {
+        REQUEST: 'info',
+        DECLINED: 'danger',
+        INTERVIEW: 'warning',
+        ACCEPTED: 'success'
+    },
+
     render: function () {
-        return <tr onClick={this.editJobEntry} className={this.props.data.state == 'PROBATION' ? 'active' : 'info'}>
+        return <tr onClick={this.editJobEntry} className={this.states[this.props.data.state]}>
             <td>{this.props.data.id}</td>
             <td>{this.props.data.title}</td>
             <td>{this.props.data.company}</td>
             <td>{this.props.data.jobHunter ? this.props.data.jobHunter : '---'}</td>
             <td>{this.props.data.salary}</td>
-            <td>{this.props.data.meetDate ? this.props.data.meetDate : '---'}</td>
+            <td><span className="date"><small>{this.formatDate(this.props.data.createdDate)}</small></span></td>
             <td>{this.props.data.state}</td>
             <td><RatingBox rating={this.props.data.favorite} onChange={this.handleFavorite}/>
             </td>
@@ -17,6 +25,14 @@ var JobEntry = React.createClass({
                 <button className="btn btn-default btn-sm" type="submit" onClick={this.deleteJobEntry}>Delete</button>
             </td>
         </tr>
+    },
+
+    formatDate: function (date) {
+        if (date) {
+            return moment(date).format('LLL');
+        }
+
+        return '---';
     },
 
     editJobEntry: function () {
